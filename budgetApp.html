@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <title>Budget App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <p style="font-size: 35px;"><strong>BUDGET APP</strong></p>
+
+    <div id="message">
+        <p id="message-container"></p>
+    </div>
+
+    <div id="content">
+        <div id="addBudget">
+            <form>
+                <label for="budgetAmount"><strong>Please Enter Your Budget</strong></label>
+                <br>
+                <input type="number" id="budgetAmount" name="budgetAmount">
+                <br>
+                <button id="calculate">Calculate</button>
+            </form>
+        </div>
+
+        <div id="addExpense">
+            <form>
+                <label for="expenseName"><strong>Please Enter Your Expense</strong></label>
+                <br>
+                <input type="text" id="expenseName" name="expenseName" autocomplete="off">
+                <br>
+                <label for="expenseAmount"><strong>Please Enter Expense Amount</strong></label>
+                <br>
+                <input type="number" id="expenseAmount" name="expenseAmount">
+                <br>
+                <button id="add">Add Expense</button>
+            </form>
+        </div>
+
+        <div id="displayOverall">
+            <div id="displayBudget">
+                <span><strong>BUDGET</strong></span>
+                <br>
+                <img src="https://img.icons8.com/color/96/000000/gold-pot.png" />
+                <br>
+                <p id="showBudget"><strong style="color: green;">$ <span>0</span></strong></p>
+            </div>
+            <div id="displayExpense">
+                <span><strong>EXPENSES</strong></span>
+                <br>
+                <img src="https://img.icons8.com/color/96/000000/mastercard-credit-card.png" />
+                <br>
+                <p id="showExpense"><strong style="color: maroon;">$ <span>0</span></strong></p>
+            </div>
+            <div id="displayBalance">
+                <span><strong>BALANCE</strong></span>
+                <br>
+                <img src="https://img.icons8.com/color/96/000000/wallet.png" />
+                <br>
+                <p id="showBalance"><strong style="color: green;">$ <span>0</span></strong></p>
+            </div>
+        </div>
+
+        <div id="myBalanceBar">
+            <div id="myExpenseBar"></div>
+        </div>
+
+        <div id="displayExpenseList">
+            <span style="color:black; font-size: 35px">Your Expenses:</span>
+            <table id="expenseList">
+                <tr>
+                    <th class="title">Expense Title</th>
+                    <th class="value">Cost</th>
+                    <th class="date">Date</th>
+                    <th class="button">Action</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+<script src="js/script.js"></script>
+
+</html>

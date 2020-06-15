@@ -1,0 +1,138 @@
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    min-width: 1000px;
+    background-color: wheat;
+}
+
+#message {
+    background-color: hsl(340, 82%, 76%);
+    border: 3px solid hsl(340, 82%, 76%);
+    color: black;
+    font-size: 20px;
+    display: none;
+}
+
+#content {
+    position: relative;
+    margin-top: 1.5%;
+}
+
+#message,
+#addBudget,
+#addExpense {
+    width: 35%;
+    border-radius: 0.5em;
+    padding-left: 1.5%;
+}
+
+#addBudget {
+    border: 3px solid green;
+}
+
+#addExpense {
+    margin-top: 1.5%;
+    border: 3px solid maroon;
+}
+
+form>label,
+form>input,
+form>button {
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+    font-size: 23px;
+}
+
+form>input {
+    width: 95%;
+    height: 30px;
+    border-radius: 0.2em;
+}
+
+#calculate,
+#add {
+    width: 200px;
+    height: 40px;
+    border-radius: 0.2em;
+}
+
+#add {
+    border: 1px solid maroon;
+}
+
+#calculate {
+    border: 1px solid green;
+}
+
+#displayOverall {
+    position: absolute;
+    top: 0;
+    left: 40%;
+    background-color: mediumpurple;
+    width: 60%;
+    text-align: center;
+}
+
+#displayBudget,
+#displayExpense,
+#displayBalance {
+    position: absolute;
+    top: 0;
+    width: 33.33%;
+    display: block;
+}
+
+#displayBudget {
+    left: 0;
+}
+
+#displayExpense {
+    left: 33.33%;
+}
+
+#displayBalance {
+    left: 66.66%;
+}
+
+#myBalanceBar {
+    position: absolute;
+    top: 45%;
+    left: 40%;
+    width: 60%;
+    height: 20px;
+    background-color: green;
+    border-radius: 0.3em;
+}
+
+#myExpenseBar {
+    height: 20px;
+    border-radius: 0.3em;
+    background-color: maroon;
+}
+
+#displayExpenseList {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    width: 60%;
+    text-align: center;
+}
+
+#expenseList {
+    width: 100%;
+    font-size: 20px;
+}
+
+.title {
+    width: 40%;
+}
+
+.value,
+.date {
+    width: 15%;
+}
+
+.button {
+    width: 30%;
+}
