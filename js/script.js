@@ -10,7 +10,7 @@ let errorMusic = new Audio("sound/error-sound-effect.mp3");
 let expenseBar = document.querySelector("#myExpenseBar");
 
 window.onload = function() {
-    let array = document.cookie.split("=");
+    let array = this.getCookie("data");
     if (array == "") {
         myobj = {
             'budget': 0,
@@ -19,7 +19,7 @@ window.onload = function() {
             'balance': 0
         };
     } else {
-        myobj = JSON.parse(array[1]);
+        myobj = JSON.parse(array);
         try {
             count = myobj.expense[myobj.expense.length - 1]['entryNo'];
             for (let i = 0; i < myobj.expense.length; i++) {
@@ -68,7 +68,7 @@ function invalidValue(e) {
     }
 }
 
-function resetCookie() {
+function setCookie() {
     try {
         document.cookie = "data=" + JSON.stringify(myobj) + ";max-age=" + (60 * 60 * 24 * 30) + ";secure";
     } catch (e) {
@@ -94,7 +94,7 @@ function deleteEntry(tr, type) {
     }
     tableHolder.removeChild(tr);
     myobj.expense = newExpense;
-    resetCookie();
+    setCookie();
 }
 
 function addTableRow(entry) {
@@ -144,6 +144,22 @@ function addTableRow(entry) {
     tableHolder.appendChild(tr);
 }
 
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
 contentHolder.addEventListener("mouseover", function(e) {
     if (e.target.id == "calculate") {
         e.target.style.backgroundColor = "green";
@@ -177,7 +193,7 @@ contentHolder.addEventListener("click", function(e) {
                     throw "Value cannot be Empty or Negative";
                 myobj.budget = budget;
                 myobj.balance = myobj.budget - myobj.totalExpense;
-                resetCookie();
+                setCookie();
                 show();
                 document.querySelector("#budgetAmount").value = null;
             } catch (e) {
@@ -201,7 +217,7 @@ contentHolder.addEventListener("click", function(e) {
                 myobj.totalExpense = myobj.totalExpense + expenseAmount;
                 myobj.balance = myobj.budget - myobj.totalExpense;
                 show();
-                resetCookie();
+                setCookie();
                 addTableRow(tempObj);
                 document.querySelector("#expenseName").value = null;
                 document.querySelector("#expenseAmount").value = null;
